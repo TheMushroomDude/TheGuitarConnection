@@ -1,9 +1,12 @@
-const DateTime = new Date();
 const WebsocketLogColor = "color: #75aaff";
+const connectWsBtn = document.getElementById('connectWsBtn');
+const sendMessageBtn = document.getElementById('sendMessageBtn');
 
-document.addEventListener("DOMContentLoaded", () => {
-    ConnectToWebsocket();
-})
+window.onload = () => ConnectToWebsocket();
+
+connectWsBtn.onclick = () => ConnectToWebsocket();
+
+sendMessageBtn.onclick = () => SendMessage();
 
 function ConnectToWebsocket(){
     const socket = new WebSocket("ws://" + window.location.origin.split('/')[2]);
@@ -23,16 +26,18 @@ function ConnectToWebsocket(){
 }
 
 function SendMessage(){
-    console.log(socket.readyState)
+    const DateTime = new Date();
+
     if(socket.readyState === 1) {
-        socket.send(JSON.stringify({
+        const jsonFormat = {
             "username": "username1234",
             "usernameColor": "",
             "timestamp": DateTime.toTimeString(),
             "message": "placeholder message!",
-        }))
+        }
+
+        socket.send(JSON.stringify(jsonFormat));
     }
-    else{
+    else
         console.log("%c Can't send message, socket isn't connected yet lol", WebsocketLogColor);
-    }
 }

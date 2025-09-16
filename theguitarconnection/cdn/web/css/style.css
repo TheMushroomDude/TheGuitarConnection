@@ -1,0 +1,135 @@
+:root {
+    --niceGray: #191919;
+    --lightPink: #f3d9fc;
+    --darkPurple: #622097;
+    --midBlue: #4da0ff;
+    --happyBlue: #3dc5e0;
+    --defaultFlexGap: 8px;
+    --defaultBorderRadius: 8px;
+    --defaultFontFamily: 'futuraDemi', arial, sans-serif;
+    font-family: var(--defaultFontFamily);
+    text-align: center;
+    color: white;
+    font-weight: normal;
+}
+
+body {
+    background: no-repeat fixed linear-gradient(#7c5f87, #342544);
+}
+
+body, h2, h3, h4{
+    margin: 0;
+}
+
+button {
+    transition: 0.2s;
+    font-family: var(--defaultFontFamily);
+    border-radius: var(--defaultBorderRadius);
+    border-style: none;
+    background: var(--niceGray);
+    color: white;
+    font-size: 25px;
+    padding: 4px 12px;
+}
+
+button:hover {
+    transition: 0.2s;
+    background: var(--lightPink);
+    color: black;
+    cursor: pointer;
+}
+
+button:active {
+    transition: 0.2s;
+    background: var(--niceGray);
+    color: white;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.homeNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    width: 100vw;
+    margin: 10px 0 0 0;
+}
+
+.homeNav-left{
+    display: flex;
+    align-items: center;
+    gap: var(--defaultFlexGap);
+    margin-left: 10px;
+    align-self: start;
+    z-index: 1;
+}
+
+.homeNav-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--defaultFlexGap);
+    margin-right: 10px;
+    align-self: flex-end;
+    z-index: 5;
+    position: absolute;
+}
+
+.homeNav-left img {
+    width: 45px;
+}
+
+#AccountPfp {
+    border: 2px solid black;
+}
+
+.homeSections {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.centerSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerSectionColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.spoilerImage {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.spoilerImage span {
+    color: white;
+    background: #7c5f87;
+    z-index: 1;
+}
+
+.spoilerImage img {
+    z-index: 0;
+    transition: 0.2s;
+    filter: blur(15px);
+}
+
+.spoilerImage img:hover {
+    transition: 0.2s;
+    filter: blur(0px);
+}
+
+.noMargin {
+    margin: 0 !important;
+}

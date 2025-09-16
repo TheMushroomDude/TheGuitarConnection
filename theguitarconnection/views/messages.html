@@ -4,12 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TheGuitarConnection Messages</title>
+  <link rel="stylesheet" href="/cdn/css/theFonts.css">
+  <link rel="stylesheet" href="/cdn/css/messagesStyle.css">
+  <link id="darkTheme" rel="stylesheet" href="/cdn/css/messagesStyleDarkTheme.css" disabled>
 </head>
-<body>
-<h1>Woah!</h1>
-<button onclick="ConnectToWebsocket()">Connect</button>
-<button onclick="SendMessage()">Send Message</button>
-<script src="/cdn/js/WebsocketHandler.js"></script>
+<body class="noMargin">
+
+  <div id="contentWrapper" class="contentWrapper">
+
+    <div id="SideInfo" class="SideInfo">
+      <div class="SideInfoUserContent">
+        <img id="SideInfoPfp" class="SideInfoPfp" src="/cdn/img/meshGradient.png">
+        <h2 id="SideInfoUsername" class="SideInfoUsername noMargin">@Username</h2>
+      </div>
+
+      <div class="SideInfoSettings">
+        <button>Settings</button>
+      </div>
+    </div>
+
+    <div id="ChattingWrapper" class="ChattingWrapper">
+
+      <div id="ChatContainer">
+
+      </div>
+
+      <div id="MessageInputContainer">
+        <input placeholder="Send a message" maxlength="140">
+      </div>
+    </div>
+
+  </div>
+
+  <div id="debugTools" class="verticalRow" style="display: none">
+    <h2>[DEBUG TOOLS]</h2>
+
+    <div>
+      <label>Dark Theme:</label>
+      <input type="checkbox" id="toggleThemeDebug">
+    </div>
+  </div>
+
+  <script src="/cdn/js/WebsocketHandler.js"></script>
+  <script src="/cdn/js/ClientTheme.js"></script>
+  <script src="/cdn/js/DebugHandler.js"></script>
 </body>
 </html>

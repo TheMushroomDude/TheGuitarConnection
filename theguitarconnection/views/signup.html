@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/cdn/css/theFonts.css">
+    <link rel="stylesheet" href="/cdn/css/messagesStyle.css">
+    <link id="darkTheme" rel="stylesheet" href="/cdn/css/messagesStyleDarkTheme.css" disabled>
+    <title>TheGuitarConnection SignUp</title>
+</head>
+<body>
+    <h1 class="signupHeader">Sign up</h1>
+    <h1 id="signupSubtitle">Hello, lets get you started!</h1>
+
+    <div id="signUpMenus">
+        <div class="centerSectionColumn" id="menuUsernameSelection" style="display: none">
+            <div class="verticalRow formSection">
+                <label>Username</label>
+                <input id="usernameIpt" type="text" placeholder="Username [4-25 characters]" maxlength="18" required>
+                <button id="SubmitUsername">Submit</button>
+            </div>
+        </div>
+
+        <div class="centerSectionColumn" id="menuPfpSelection" style="display: none">
+            <div class="profilePicturesDisplay">
+                <button class="PfpChoiceButton" id="PfpBackBtn"> < </button>
+                <img src="/cdn/img/profilePictures/Blue.png" alt="Profile Picture Display" id="ProfilePictureSelect">
+                <button class="PfpChoiceButton" id="PfpNextBtn"> > </button>
+            </div>
+            <button class="selectPfpButton" id="SelectPfpBtn">Select profile picture</button>
+        </div>
+
+        <div class="centerSectionColumn" style="display: none">
+            <button id="FinishSignup">Finish registration</button>
+        </div>
+    </div>
+
+    <div id="debugTools" class="verticalRow" style="display: none">
+        <h2>[DEBUG TOOLS]</h2>
+
+        <div>
+            <label>Dark Theme:</label>
+            <input type="checkbox" id="toggleThemeDebug">
+        </div>
+
+        <div class="verticalRow">
+            <button id="DebugUsernameMenuBtn">Username menu</button>
+            <button id="DebugPfpMenuBtn">PFP menu</button>
+            <button id="DebugFinishMenuBtn">Finish menu</button>
+        </div>
+
+        <div>
+            <h6 style="margin: 10px 0 0 0;" id="debugCurrentPfp">Current PFP option: null</h6>
+        </div>
+    </div>
+
+    <script src="/cdn/js/SignUpHandler.js"></script>
+    <script src="/cdn/js/ClientTheme.js"></script>
+    <script src="/cdn/js/DebugHandler.js"></script>
+</body>
+</html>
