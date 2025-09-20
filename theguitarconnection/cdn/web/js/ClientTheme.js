@@ -1,17 +1,25 @@
 const darkThemeCSS = document.getElementById('darkTheme');
 const toggleThemeDebug = document.getElementById('toggleThemeDebug');
+const toggleThemeSwitch = document.getElementById('toggleThemeSwitch');
 
-LoadTheme();
-toggleThemeDebug.onclick = () => ToggleTheme();
+SetupClientTheme();
+
+function SetupClientTheme(){
+    LoadTheme();
+    toggleThemeDebug.onclick = () => ToggleTheme();
+    toggleThemeSwitch.onclick = () => ToggleTheme();
+}
 
 function LoadTheme() {
     const darkThemeEnabled = localStorage.getItem('darkTheme') === 'true';
     darkThemeCSS.disabled = !darkThemeEnabled;
     toggleThemeDebug.checked = darkThemeEnabled;
+    if(toggleThemeSwitch !== null)
+        toggleThemeSwitch.checked = darkThemeEnabled;
 }
 
 function ToggleTheme(){
-    const toggleThemeDebugChecked = toggleThemeDebug.checked;
-    localStorage.setItem('darkTheme', toggleThemeDebugChecked.toString());
+    const toggleThemeCheck = localStorage.getItem('darkTheme') === 'true';
+    localStorage.setItem('darkTheme', (!toggleThemeCheck).toString());
     LoadTheme();
 }

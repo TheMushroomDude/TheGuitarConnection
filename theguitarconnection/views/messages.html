@@ -19,18 +19,32 @@
       </div>
 
       <div class="SideInfoSettings">
+        <div>
+          <label>Dark Theme:</label>
+          <input type="checkbox" id="toggleThemeSwitch">
+        </div>
         <button>Settings</button>
+        <button onclick="window.location.href = window.location.origin">Exit</button>
       </div>
     </div>
 
     <div id="ChattingWrapper" class="ChattingWrapper">
 
-      <div id="ChatContainer">
+      <template id="ChatMessageTemplate">
+        <chatmessage>
+          <div class="chatmessageUser">
+            <img id="chatMessagePfp" class="chatMessagePfp" src="/cdn/img/meshGradient.png">
+            <h2 id="chatMessageUsername">@Username</h2>
+          </div>
+          <h3 id="chatMessageInfo">This is a placeholder message! These things can actually get quite long... so this message is going to be long! Even if it takes up more bites...</h3>
+        </chatmessage>
+      </template>
 
-      </div>
+      <div id="ChatContainer" class="ChatContainer"></div>
 
-      <div id="MessageInputContainer">
-        <input placeholder="Send a message" maxlength="140">
+      <div id="MessageInputContainer" class="MessageInputContainer">
+        <input id="MessageInput" class="MessageInput" placeholder="Send a message [min 3 characters]" minlength="3" maxlength="140">
+        <button id="MessageSendBtn" class="MessageSendButton">Send</button>
       </div>
     </div>
 
@@ -39,14 +53,24 @@
   <div id="debugTools" class="verticalRow" style="display: none">
     <h2>[DEBUG TOOLS]</h2>
 
-    <div>
-      <label>Dark Theme:</label>
-      <input type="checkbox" id="toggleThemeDebug">
-    </div>
+    <section>
+      <div>
+        <label>Dark Theme:</label>
+        <input type="checkbox" id="toggleThemeDebug">
+      </div>
+
+      <div style="text-align: left;">
+        <label id="debugLocalStorageValues">
+          Local Storage Values:
+        </label>
+      </div>
+    </section>
+
   </div>
 
-  <script src="/cdn/js/WebsocketHandler.js"></script>
   <script src="/cdn/js/ClientTheme.js"></script>
+  <script type="module" src="/cdn/js/WebsocketHandler.js"></script>
+  <script src="/cdn/js/UserSettings.js"></script>
   <script src="/cdn/js/DebugHandler.js"></script>
 </body>
 </html>

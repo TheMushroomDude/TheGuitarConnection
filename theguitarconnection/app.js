@@ -1,14 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const https = require('https');
-const Websocket = require('ws');
-require('dotenv').config();
+const CORS = require('cors');
+const { Server } = require("socket.io");
 const fs = require('fs');
 const { LL, ViewsDir, CdnDir} = require('./tools');
 
 //Routers
 const { apiRouter } = require('./routers/apiRouter')
-const { apiRouterMessages } = require('./routers/apiMessagesRouter')
 
+//6090 = prod
+//6080 = beta
+//6091 = misc
 const appPort = process.env.PORT || 3030;
 const app = express();
 const server = https.createServer(
@@ -19,22 +22,21 @@ const server = https.createServer(
     app
 );
 
+app.use(CORS(server));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/cdn', express.static(__dirname + '/cdn/web'));
 
 //Routes
 app.use('/api', apiRouter);
-app.use('/api/messages', apiRouterMessages);
 
-const wss = new Websocket.Server({server: server});
+const io = new Server(server);
 
-wss.on('connection', (data) => {
-    console.log("Connection Made...");
-});
-
-wss.on('message', (data) => {
-    console.log(data);
+io.sockets.on('connection', socket => {
+    socket.on('message', (data) => {
+        if (data.Message.message.length > 2)
+            io.emit('message', data);
+    })
 })
 
 app.get('/', (req, res) => {
@@ -60,3 +62,5 @@ server.listen(appPort, () => {
     console.log("https://localhost:" + appPort);
     console.log(LL);
 })
+
+module.exports = { io };
