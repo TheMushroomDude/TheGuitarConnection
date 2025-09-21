@@ -1,5 +1,6 @@
 const debugTools = document.getElementById('debugTools');
 const debugLocalStorageValues = document.getElementById('debugLocalStorageValues');
+const debugWSInfo = document.getElementById('debugWSInfo');
 
 window.onload = () => SetTools();
 
@@ -12,6 +13,7 @@ function SetTools(){
         debugTools.style.display = '';
         let UpdateInfo = setInterval(() => {
             UpdateLocalStorageValues();
+            UpdateWSInfo();
         }, 600)
     }
     else
@@ -27,4 +29,14 @@ function UpdateLocalStorageValues(){
         StringDisplay += `${key}: ${localStorage[key]} <br>`;
     });
     debugLocalStorageValues.innerHTML = StringDisplay;
+}
+
+function UpdateWSInfo(){
+    if(socket === null || undefined) return;
+
+    debugWSInfo.innerHTML =
+        `--Debug Info-- <br>` +
+        `Connected: ${socket.connected} <br>` +
+        `SocketId : ${socket.p.secure} <br>` +
+        `SocketId: ${socket.id} <br>`;
 }

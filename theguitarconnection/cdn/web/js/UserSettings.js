@@ -1,3 +1,4 @@
+const WarnStyle = "color: lightblue;";
 const SideInfoPfp = document.getElementById('SideInfoPfp');
 const SideInfoUsername = document.getElementById('SideInfoUsername');
 

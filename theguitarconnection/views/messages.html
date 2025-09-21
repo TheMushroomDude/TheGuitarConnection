@@ -18,11 +18,25 @@
         <h2 id="SideInfoUsername" class="SideInfoUsername noMargin">@Username</h2>
       </div>
 
+      <div class="SideInfoConnectedClients">
+        <h2 id="SideInfoConnectedClientsCount">People: [0]</h2>
+        <h3 id="SideInfoConnectedClientsList" class="SideInfoConnectedClientsList"></h3>
+      </div>
+
       <div class="SideInfoSettings">
+        <div>
+          <label>HTML Elements:</label>
+          <input type="checkbox" id="toggleChatHTML" checked>
+        </div>
+        <div>
+          <label>Follow Chat:</label>
+          <input type="checkbox" id="toggleFollowChat" checked>
+        </div>
         <div>
           <label>Dark Theme:</label>
           <input type="checkbox" id="toggleThemeSwitch">
         </div>
+
         <button>Settings</button>
         <button onclick="window.location.href = window.location.origin">Exit</button>
       </div>
@@ -40,11 +54,12 @@
         </chatmessage>
       </template>
 
-      <div id="ChatContainer" class="ChatContainer"></div>
+      <div id="ChatContainer" class="ChatContainer">
+      </div>
 
       <div id="MessageInputContainer" class="MessageInputContainer">
-        <input id="MessageInput" class="MessageInput" placeholder="Send a message [min 3 characters]" minlength="3" maxlength="140">
-        <button id="MessageSendBtn" class="MessageSendButton">Send</button>
+        <input id="MessageInput" class="MessageInput" placeholder="Send a message [min 3 characters]" minlength="3" maxlength="140" disabled>
+        <button id="MessageSendBtn" class="MessageSendButton" disabled>Send</button>
       </div>
     </div>
 
@@ -60,8 +75,14 @@
       </div>
 
       <div style="text-align: left;">
-        <label id="debugLocalStorageValues">
-          Local Storage Values:
+        <label id="debugLocalStorageValues" class="debuggInfo">
+          --Local Storage Values--
+        </label>
+      </div>
+
+      <div style="text-align: left;">
+        <label id="debugWSInfo" class="debuggInfo">
+          --Debug Info--
         </label>
       </div>
     </section>

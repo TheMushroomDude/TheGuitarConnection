@@ -87,10 +87,10 @@ a {
     max-height: 96vh;
 }
 
-#debugLocalStorageValues {
+.debuggInfo {
     display: flex;
     font-size: 12px;
-    width: 20px;
+    width: 150px;
 }
 
 
@@ -120,6 +120,15 @@ chatmessage h3 {
 
 chatmessage h2 {
     font-size: 24px;
+}
+
+chatmessage img {
+    width: 160px;
+}
+
+chatmessage iframe {
+    transition: 0s;
+    resize: both;
 }
 
 .chatmessageUser {
@@ -184,6 +193,7 @@ chatmessage h2 {
     min-width: 100px;
     max-width: 400px;
     overflow: auto;
+    overflow-x: hidden;
     resize: horizontal;
 }
 
@@ -199,6 +209,23 @@ chatmessage h2 {
 .SideInfoPfp {
     clip-path: circle(50px);
     width: 100px;
+}
+
+.SideInfoUsername {
+    font-size: 22px;
+}
+
+.SideInfoConnectedClients {
+    margin-top: 10px;
+    margin-bottom: auto;
+}
+
+.SideInfoConnectedClientsList {
+    font-size: 12px;
+    overflow: auto;
+    overflow-x: hidden;
+    height: 200px;
+    width: 130px;
 }
 
 .SideInfoSettings {
@@ -271,6 +298,15 @@ chatmessage h2 {
 }
 
 /* General items */
+
+.magic {
+    opacity: 0.2;
+}
+
+.magic:hover {
+    opacity: 1;
+    font-size: 20px;
+}
 
 .verticalRow {
     display: flex;
