@@ -37,6 +37,6 @@ function UpdateWSInfo(){
     debugWSInfo.innerHTML =
         `--Debug Info-- <br>` +
         `Connected: ${socket.connected} <br>` +
-        `SocketId : ${socket.p.secure} <br>` +
+        `Secure: ${socket.p.secure} <br>` +
         `SocketId: ${socket.id} <br>`;
 }
