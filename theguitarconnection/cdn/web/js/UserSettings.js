@@ -11,6 +11,6 @@ function SetSideInfoUserContent(){
     if(UserProfile === null || CachedLogin === null) return console.log("%c There's no accounts 🙀", WarnStyle);
     const CurrentProfile = UserProfile[CachedLogin];
 
-    SideInfoUsername.innerHTML = CurrentProfile.username;
+    SideInfoUsername.textContent = CurrentProfile.username;
     SideInfoPfp.src = `/cdn/img/profilePictures/${CurrentProfile.profilePicture}.png`;
 }

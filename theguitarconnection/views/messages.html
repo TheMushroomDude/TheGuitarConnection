@@ -12,6 +12,7 @@
 
   <div id="contentWrapper" class="contentWrapper">
 
+    <!-- Side Info -->
     <div id="SideInfo" class="SideInfo">
       <div class="SideInfoUserContent">
         <img id="SideInfoPfp" class="SideInfoPfp" src="/cdn/img/meshGradient.png">
@@ -37,29 +38,35 @@
           <input type="checkbox" id="toggleThemeSwitch">
         </div>
 
-        <button>Settings</button>
+        <button id="SideInfoSettingsBtn">Settings</button>
         <button onclick="window.location.href = window.location.origin">Exit</button>
       </div>
     </div>
 
-    <div id="ChattingWrapper" class="ChattingWrapper">
+    <div id="subMenus" class="subMenus">
 
-      <template id="ChatMessageTemplate">
-        <chatmessage>
-          <div class="chatmessageUser">
-            <img id="chatMessagePfp" class="chatMessagePfp" src="/cdn/img/meshGradient.png">
-            <h2 id="chatMessageUsername">@Username</h2>
-          </div>
-          <h3 id="chatMessageInfo">This is a placeholder message! These things can actually get quite long... so this message is going to be long! Even if it takes up more bites...</h3>
-        </chatmessage>
-      </template>
+      <!-- Chatting Container -->
+      <div id="ChattingWrapper" class="ChattingWrapper">
+        <template id="ChatMessageTemplate">
+          <chatmessage>
+            <div class="chatmessageUser">
+              <img id="chatMessagePfp" class="chatMessagePfp" src="/cdn/img/meshGradient.png">
+              <h2 id="chatMessageUsername">@Username</h2>
+            </div>
+            <h3 id="chatMessageInfo">This is a placeholder message! These things can actually get quite long... so this message is going to be long! Even if it takes up more bites...</h3>
+          </chatmessage>
+        </template>
 
-      <div id="ChatContainer" class="ChatContainer">
+        <div id="ChatContainer" class="ChatContainer"></div>
+
+        <div id="MessageInputContainer" class="MessageInputContainer">
+          <input id="MessageInput" class="MessageInput" placeholder="Send a message [min 3 characters]" minlength="3" maxlength="340" disabled>
+          <button id="MessageSendBtn" class="MessageSendButton" disabled>Send</button>
+        </div>
       </div>
 
-      <div id="MessageInputContainer" class="MessageInputContainer">
-        <input id="MessageInput" class="MessageInput" placeholder="Send a message [min 3 characters]" minlength="3" maxlength="340" disabled>
-        <button id="MessageSendBtn" class="MessageSendButton" disabled>Send</button>
+      <!-- Settings Container -->
+      <div id="SettingsContainer" style="display: none">
       </div>
     </div>
 
@@ -92,6 +99,7 @@
   <script src="/cdn/js/ClientTheme.js"></script>
   <script type="module" src="/cdn/js/WebsocketHandler.js"></script>
   <script src="/cdn/js/UserSettings.js"></script>
+  <script src="/cdn/js/MessagesPageFunctions.js"></script>
   <script src="/cdn/js/DebugHandler.js"></script>
 </body>
 </html>

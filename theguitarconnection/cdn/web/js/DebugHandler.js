@@ -28,13 +28,13 @@ function UpdateLocalStorageValues(){
     StorageKeys.forEach(key => {
         StringDisplay += `${key}: ${localStorage[key]} <br>`;
     });
-    debugLocalStorageValues.innerHTML = StringDisplay;
+    debugLocalStorageValues.textContent = StringDisplay;
 }
 
 function UpdateWSInfo(){
     if(socket === null || undefined) return;
 
-    debugWSInfo.innerHTML =
+    debugWSInfo.textContent =
         `--Debug Info-- <br>` +
         `Connected: ${socket.connected} <br>` +
         `Secure: ${socket.p.secure} <br>` +

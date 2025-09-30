@@ -59,6 +59,8 @@ serverApp.listen(appPort, () => {
     console.log("The Guitar Connection");
     console.log(LL);
     console.log("https://localhost:" + appPort);
+    console.log("https://localhost:" + appPort + "/signup");
+    console.log("https://localhost:" + appPort + "/messages");
     console.log(LL);
 })
 
